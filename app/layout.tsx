@@ -1,6 +1,7 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navigation from '@/app/components/navigation/Navigation'
+import getCurrnetUser from './actions/getCurrentUser'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -9,12 +10,14 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const currnetUser = await getCurrnetUser();
+
   return (
     <html>
       <body className={inter.className}>
         <div>
           <div className="flex min-h-screen flex-col">
-            <Navigation />
+            <Navigation currentUser={currnetUser}/>
 
             <main className="container mx-auto max-w-screen-sm flex-1 px-1 py-5">{children}</main>
 
