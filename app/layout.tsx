@@ -1,7 +1,10 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navigation from '@/app/components/navigation/Navigation'
-import getCurrnetUser from './actions/getCurrentUser'
+import AuthContext from '@/app/context/AuthContext'
+import SignupModal from '@/app/components/modals/SignupModal'
+import ToasterContext from '@/app/context/ToasterContext'
+import getCurrnetUser from '@/app/actions/getCurrentUser'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -15,7 +18,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html>
       <body className={inter.className}>
-        <div>
+        <AuthContext>
+          <ToasterContext />
+          <SignupModal />
+
           <div className="flex min-h-screen flex-col">
             <Navigation currentUser={currnetUser}/>
 
@@ -27,7 +33,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
               </div>
             </footer>
           </div>
-        </div>
+        </AuthContext>
       </body>
     </html>
   )

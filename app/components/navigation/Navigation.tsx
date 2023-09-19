@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { User } from '@prisma/client';
 import Menu from '@/app/components/navigation/Menu';
