@@ -1,10 +1,13 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import Navigation from '@/app/components/navigation/Navigation'
-import AuthContext from '@/app/context/AuthContext'
-import SignupModal from '@/app/components/modals/SignupModal'
-import ToasterContext from '@/app/context/ToasterContext'
-import getCurrnetUser from '@/app/actions/getCurrentUser'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import Navigation from '@/app/components/navigation/Navigation';
+import AuthContext from '@/app/context/AuthContext';
+import SignupModal from '@/app/components/modals/SignupModal';
+import LoginModal from '@/app/components/modals/LoginModal';
+import ToasterContext from '@/app/context/ToasterContext';
+import getCurrnetUser from '@/app/actions/getCurrentUser';
+
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -21,6 +24,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <AuthContext>
           <ToasterContext />
           <SignupModal />
+          <LoginModal />
 
           <div className="flex min-h-screen flex-col">
             <Navigation currentUser={currnetUser}/>
