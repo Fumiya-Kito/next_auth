@@ -4,6 +4,7 @@ import Navigation from '@/app/components/navigation/Navigation';
 import AuthContext from '@/app/context/AuthContext';
 import SignupModal from '@/app/components/modals/SignupModal';
 import LoginModal from '@/app/components/modals/LoginModal';
+import ProfileModal from './components/modals/ProfileModal';
 import ToasterContext from '@/app/context/ToasterContext';
 import getCurrnetUser from '@/app/actions/getCurrentUser';
 
@@ -25,6 +26,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           <ToasterContext />
           <SignupModal />
           <LoginModal />
+          <ProfileModal currentUser={currnetUser} />
 
           <div className="flex min-h-screen flex-col">
             <Navigation currentUser={currnetUser}/>
